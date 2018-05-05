@@ -13,7 +13,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * ,-----------------------------------------------------------.
      * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|  \|  `|
      * |-----------------------------------------------------------|
-     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|Backs|
+     * |FN7  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|Backs|
      * |-----------------------------------------------------------|
      * |Contro|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|FN2|Enter   |
      * |-----------------------------------------------------------|
@@ -23,7 +23,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       `-------------------------------------------'
      */
     KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV,   \
-           TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,       \
+           FN7, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,       \
            LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, FN2,ENT,             \
            LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RSFT,FN0,             \
                 LALT,LGUI,          FN1,                FN3, FN4),
@@ -109,23 +109,24 @@ const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
 #else
 const action_t fn_actions[] PROGMEM = {
     [0]  = ACTION_LAYER_MOMENTARY(1),
-    [1]  = ACTION_LAYER_TAP_KEY(2, KC_SPC),             // holding space will active swifty mode
-    [2]  = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_QUOTE),     // holding ' is right control
-    [3]  = ACTION_MODS(MOD_LCTL | MOD_LSFT | MOD_LGUI), // control + shift + command
-    [4]  = ACTION_MODS(MOD_LALT | MOD_LGUI),            // alt + command
-    [5]  = ACTION_MODS_KEY(MOD_LCTL, KC_TAB),           // ctrl + tab
-    [6]  = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_TAB),// ctrl + shift + tab
-    [11]  = ACTION_MODS_KEY(MOD_LSFT, KC_1),            // map !
-    [12]  = ACTION_MODS_KEY(MOD_LSFT, KC_2),            // map @
-    [13]  = ACTION_MODS_KEY(MOD_LSFT, KC_3),            // map #
-    [14]  = ACTION_MODS_KEY(MOD_LSFT, KC_4),            // map $
-    [15]  = ACTION_MODS_KEY(MOD_LSFT, KC_5),            // map %
-    [16]  = ACTION_MODS_KEY(MOD_LSFT, KC_6),            // map ^
-    [17]  = ACTION_MODS_KEY(MOD_LSFT, KC_7),            // map &
-    [18]  = ACTION_MODS_KEY(MOD_LSFT, KC_8),            // map *
-    [19]  = ACTION_MODS_KEY(MOD_LSFT, KC_9),            // map (
-    [20]  = ACTION_MODS_KEY(MOD_LSFT, KC_0),            // map )
-    [21]  = ACTION_MODS_KEY(MOD_LSFT, KC_MINS),         // map _
-    [22]  = ACTION_MODS_KEY(MOD_LSFT, KC_EQL),          // map +
+    [1]  = ACTION_LAYER_TAP_KEY(2, KC_SPC),                                // holding space will active swifty mode
+    [2]  = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_QUOTE),                        // holding ' is right control
+    [3]  = ACTION_MODS(MOD_LALT | MOD_LGUI),                               // alt + command
+    [4]  = ACTION_MODS(MOD_LCTL | MOD_LSFT | MOD_LGUI),                    // control + shift + command
+    [5]  = ACTION_MODS_KEY(MOD_LCTL, KC_TAB),                              // ctrl + tab
+    [6]  = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_TAB),                   // ctrl + shift + tab
+    [7]  = ACTION_MODS_TAP_KEY(MOD_LCTL | MOD_LSFT | MOD_LGUI, KC_TAB),    // holding tab is control + shift + command
+    [11]  = ACTION_MODS_KEY(MOD_LSFT, KC_1),                               // map !
+    [12]  = ACTION_MODS_KEY(MOD_LSFT, KC_2),                               // map @
+    [13]  = ACTION_MODS_KEY(MOD_LSFT, KC_3),                               // map #
+    [14]  = ACTION_MODS_KEY(MOD_LSFT, KC_4),                               // map $
+    [15]  = ACTION_MODS_KEY(MOD_LSFT, KC_5),                               // map %
+    [16]  = ACTION_MODS_KEY(MOD_LSFT, KC_6),                               // map ^
+    [17]  = ACTION_MODS_KEY(MOD_LSFT, KC_7),                               // map &
+    [18]  = ACTION_MODS_KEY(MOD_LSFT, KC_8),                               // map *
+    [19]  = ACTION_MODS_KEY(MOD_LSFT, KC_9),                               // map (
+    [20]  = ACTION_MODS_KEY(MOD_LSFT, KC_0),                               // map )
+    [21]  = ACTION_MODS_KEY(MOD_LSFT, KC_MINS),                            // map _
+    [22]  = ACTION_MODS_KEY(MOD_LSFT, KC_EQL),                             // map +
 };
 #endif
